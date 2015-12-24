@@ -97,7 +97,7 @@ More Information About Notepad:
   
   Author            : Hongten
   E-mail            : hongtenzone@foxmail.com
-  Home Page         : http://www.cnblogs.com/hongten
+  Home Page         : http://www.cnblogs.com
   Notepad Page      : http://www.cnblogs.com/hongten/p/hongten_notepad_index.html
   Notepad Skin Page : http://www.cnblogs.com/hongten/p/hongten_notepad_substance_skins.html
   Windows Notepad   : http://windows.microsoft.com/en-us/windows/notepad-faq#1TC=windows-7

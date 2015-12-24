@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -15,6 +16,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
@@ -49,10 +51,14 @@ public class MainUI extends NotepadUI {
 	JSeparator line;
 	// Menus
 	JMenu file, edit, format, view, help, viewHelp, source;
+	// PopupMenu
+	JPopupMenu textAreaPopupMenu;
 	// File Items
 	JMenuItem news, open, save, saveAs, properties, exit;
 	// Edit Items
 	JMenuItem undo, copy, paste, cut, find, findNext, replace, selectAll, timeDate;
+	// PopupMenu
+	JMenuItem popUndo, popCopy, popPaste, popCut, popSelectAll, popTimeDate;
 	// Format Items
 	JMenuItem wordWrap, resetFont, font, fontSize, fontStyle;
 	// View Items
@@ -122,6 +128,7 @@ public class MainUI extends NotepadUI {
 		menuView();
 		menuHelp();
 		setJMenuBar(menuBar);
+		initTextAreaPopupMenu();
 		setDisabledMenuAtCreating(false);
 	}
 
@@ -225,8 +232,42 @@ public class MainUI extends NotepadUI {
 		timeDate.addActionListener(this);
 		timeDate.setAccelerator(KeyStroke.getKeyStroke(Common.T, InputEvent.CTRL_MASK));
 		edit.add(timeDate);
-
+		
 		menuBar.add(edit);
+	}
+
+	private void initTextAreaPopupMenu() {
+		textAreaPopupMenu = new JPopupMenu();
+		
+		popUndo = new JMenuItem(Common.UNDO);
+		popUndo.addActionListener(this);
+		textAreaPopupMenu.add(popUndo);
+
+		line = new JSeparator();
+		textAreaPopupMenu.add(line);
+
+		popCut = new JMenuItem(Common.CUT);
+		popCut.addActionListener(this);
+		textAreaPopupMenu.add(popCut);
+		
+		popCopy = new JMenuItem(Common.COPY);
+		popCopy.addActionListener(this);
+		textAreaPopupMenu.add(popCopy);
+
+		popPaste = new JMenuItem(Common.PASTE);
+		popPaste.addActionListener(this);
+		textAreaPopupMenu.add(popPaste);
+
+		line = new JSeparator();
+		textAreaPopupMenu.add(line);
+
+		popSelectAll = new JMenuItem(Common.SELECT_ALL);
+		popSelectAll.addActionListener(this);
+		textAreaPopupMenu.add(popSelectAll);
+
+		popTimeDate = new JMenuItem(Common.TIME_DATE);
+		popTimeDate.addActionListener(this);
+		textAreaPopupMenu.add(popTimeDate);
 	}
 
 	private void menuFormat() {
@@ -314,15 +355,20 @@ public class MainUI extends NotepadUI {
 	
 	private void setDisabledMenuAtCreating(boolean b){
 		undo.setEnabled(b);
+		popUndo.setEnabled(b);
 		cut.setEnabled(b);
+		popCut.setEnabled(b);
 		copy.setEnabled(b);
+		popCopy.setEnabled(b);
 		find.setEnabled(b);	
 		findNext.setEnabled(b);
 	}
 	
 	private void setDisabledMenuAtSelecting(boolean b){
 		cut.setEnabled(b);
+		popCut.setEnabled(b);
 		copy.setEnabled(b);
+		popCopy.setEnabled(b);
 	}
 	
 	private void initTextArea() {
@@ -331,6 +377,9 @@ public class MainUI extends NotepadUI {
 		lineWrap = true;
 		textAreaFont = new Font(FontManagerUI.FONT_TYPE, fontStyleNum, FontManagerUI.FONT_SIZE);
 		textArea.setFont(textAreaFont);
+		
+		textArea.add(textAreaPopupMenu);
+		
 		initUndoManager();
 		// add Undoable edit listener
 		textArea.getDocument().addUndoableEditListener(new UndoableEditListener() {
@@ -361,7 +410,30 @@ public class MainUI extends NotepadUI {
 			public void mouseDragged(MouseEvent e) {
 				isSelectedText();
 			}
+		});
+		textArea.addMouseListener(new MouseListener() {
+			public void mouseReleased(MouseEvent e) {
+				if (e.getButton() == MouseEvent.BUTTON3) {
+					isSelectedText();
+				}
+			}
 			
+			public void mousePressed(MouseEvent e) {
+				if (e.getButton() == MouseEvent.BUTTON3) {
+					isSelectedText();
+					textAreaPopupMenu.show(textArea, e.getX(), e.getY());
+				}
+			}
+			
+			public void mouseExited(MouseEvent e) {
+			}
+			
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+			
+			public void mouseClicked(MouseEvent e) {
+			}
 		});
 		textAreaScroll = new JScrollPane(textArea);
 		this.add(textAreaScroll);
@@ -407,11 +479,19 @@ public class MainUI extends NotepadUI {
 	private void actionForEditItem(ActionEvent e) {
 		if (e.getSource() == undo) {
 			EditMenuUtil.undo();
+		} else if (e.getSource() == popUndo) {
+			EditMenuUtil.undo();
 		} else if (e.getSource() == copy) {
+			EditMenuUtil.copy();
+		} else if (e.getSource() == popCopy) {
 			EditMenuUtil.copy();
 		} else if (e.getSource() == paste) {
 			EditMenuUtil.paste();
+		} else if (e.getSource() == popPaste) {
+			EditMenuUtil.paste();
 		} else if (e.getSource() == cut) {
+			EditMenuUtil.cut();
+		} else if (e.getSource() == popCut) {
 			EditMenuUtil.cut();
 		} else if (e.getSource() == find) {
 			setMainUIXY();
@@ -426,7 +506,11 @@ public class MainUI extends NotepadUI {
 			edit.replace();
 		} else if (e.getSource() == selectAll) {
 			EditMenuUtil.selectAll();
+		} else if (e.getSource() == popSelectAll) {
+			EditMenuUtil.selectAll();
 		} else if (e.getSource() == timeDate) {
+			EditMenuUtil.timeDate();
+		}else if (e.getSource() == popTimeDate) {
 			EditMenuUtil.timeDate();
 		}
 	}

@@ -103,7 +103,7 @@ public class Common {
 	public static final String APPLICATION_DESCRIPTION = APPLICATION + BLANK + DESCRIPTION;
 	public static final String APPLICATION_DESCRIPTION_DETAIL = "A " + NOTEPAD;
 	public static final String VERSION = "Version";
-	public static final String VERSION_VALUE = "1.0";
+	public static final String VERSION_VALUE = "1.1";
 	public static final String BLOG = "Blog";
 	public static final String HOME_PAGE = "http://www.cnblogs.com/hongten";
 	public static final String NOTEPAD_PUBLISHED_PAGE = HOME_PAGE + "/p/hongten_notepad_index.html";
