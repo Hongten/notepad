@@ -52,11 +52,7 @@ Right Click --> Run As --> Java Application
 -----------------------------------------------------
 # The Notepad Main UI
 
-![Example](https://github.com/Hongten/notepad/blob/master/image/wmain_panel.png)
-
-# The Notepad Main UI
-
-![Example](https://github.com/Hongten/notepad/blob/master/image/wmain_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/main_panel.png)
 
 # File Menu
 
