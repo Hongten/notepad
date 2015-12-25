@@ -5,14 +5,14 @@ I have spent near more two weeks to write this Notepad application. At this mome
 I wonder that do you know the Notepad in Windows XP/7. If you have no idea, I am pleasure to display the Notepad 
 
 in Windows 7 with you, and it displays as below:
-![Example](https://github.com/Hongten/notepad/tree/master/image/windows_notepad_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/windows_notepad_panel.png)
 
 It has large future and simple interface, so does my Notepad!
 
 Well, I will introduce my Notepad.
 
 First, Let's look at the structure of the my Notepad application:
-![Example](https://github.com/Hongten/notepad/tree/master/image/structure.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/structure.png)
 
 # How to add substance to your project build path?
 
@@ -50,43 +50,43 @@ Right Click --> Run As --> Java Application
 -----------------------------------------------------
 # The Notepad Main UI
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/wmain_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/wmain_panel.png)
 
 # The Notepad Main UI
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/wmain_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/wmain_panel.png)
 
 # File Menu
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/file_menu_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/file_menu_panel.png)
 
 # Edit Menu
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/edit_menu_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/edit_menu_panel.png)
 
 # Format Menu
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/format_menu_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/format_menu_panel.png)
 
 # View Menu
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/view_menu_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/view_menu_panel.png)
 
 # Time Menu
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/time.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/time.png)
 
 # Open File
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/open_file_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/open_file_panel.png)
 
 # About
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/about_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/about_panel.png)
 
 # Change Skin
 
-![Example](https://github.com/Hongten/notepad/tree/master/image/change_skin_panel.png)
+![Example](https://github.com/Hongten/notepad/blob/master/image/change_skin_panel.png)
 
 # Describe for all files
 
