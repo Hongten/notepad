@@ -23,29 +23,34 @@ Your computer should install the Maven(apache-maven-3.2.2 is good choice) before
 There are TWO ways to provided.
 
 1. Using eclipse tool to add the substance-1.0.jar to project build path.
-	1.1.Finding the substance-1.0.jar with the path "[notepad/lib/skin/substance-1.0.jar](https://github.com/Hongten/notepad/blob/master/lib/skin/substance-1.0.jar)".
+
+  1.1.Finding the substance-1.0.jar with the path "[notepad/lib/skin/substance-1.0.jar](https://github.com/Hongten/notepad/blob/master/lib/skin/substance-1.0.jar)".
 	
-	Right Click --> Build Path --> Add to Build Path.
+    Right Click --> Build Path --> Add to Build Path.
 
   1.2.Then open the opm.xml(with the path "[notepad/pom.xml](https://github.com/Hongten/notepad/blob/master/pom.xml)")
-      Deleting the substance dependency:
-	  
+  
+    Deleting the substance dependency:
 ```xml
 <dependency>
-	<groupId>org.jvnet.substance</groupId>
-	<artifactId>substance</artifactId>
-	<version>1.0</version>
+  <artifactId>substance</artifactId>
+  <artifactId>substance</artifactId>
+  <version>1.0</version>
 </dependency>
 ```
   
 2. Copy the substance-1.0.jar to your repository.
 	2.1.Finding the substance-1.0.jar with the path "[notepad/lib/skin/substance-1.0.jar](https://github.com/Hongten/notepad/blob/master/lib/skin/substance-1.0.jar)".
+	
 	Copying the substance-1.0.jar file to your repository.
+	
 	The default path of the repository is "${user.home}/.m2/repository/org/jvnet/substance/substance/1.0/substance-1.0.jar"
 
 # How to run notepad project?
 
-Using the eclipse tool and finding the Client.java file with the path "notepad/src/main/java/com/b510/notepad/client/[Client.java](https://github.com/Hongten/notepad/blob/master/src/main/java/com/b510/notepad/client/Client.java)".
+Using the eclipse tool and finding the Client.java file with the path 
+
+"notepad/src/main/java/com/b510/notepad/client/[Client.java](https://github.com/Hongten/notepad/blob/master/src/main/java/com/b510/notepad/client/Client.java)".
 
 Right Click --> Run As --> Java Application
 
